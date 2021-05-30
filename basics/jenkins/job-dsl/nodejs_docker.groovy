@@ -14,6 +14,7 @@ job('NodeJS Docker example') {
     steps {
         dockerBuildAndPublish {
             repositoryName('roeyydocker/nodejsdocker')
+            buildContext('basics/jenkins/job-dsl/nodejs_docker.groovy')
             tag('${GIT_REVISION,length=9}')
             registryCredentials('dockerhub')
             forcePull(false)
